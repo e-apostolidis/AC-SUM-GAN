@@ -387,7 +387,7 @@ class Solver(object):
     
                     advantage = returns - values
     
-                    actor_loss = -((log_probs * advantage.detach()).mean() + (0.1/self.config.termination_point)*entropy)
+                    actor_loss = -((log_probs * advantage.detach()).mean() + (self.config.entropy_coef/self.config.termination_point)*entropy)
                     sparsity_loss = self.sparsity_loss(scores)
                     critic_loss = advantage.pow(2).mean()
                     
