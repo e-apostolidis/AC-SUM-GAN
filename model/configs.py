@@ -57,6 +57,7 @@ def get_config(parse=True, **optional_kwargs):
     parser.add_argument('--hidden_size', type=int, default=512)
     parser.add_argument('--num_layers', type=int, default=2)
     parser.add_argument('--regularization_factor', type=float, default=0.5)
+    parser.add_argument('--entropy_coef', type=float, default=0.1)
 
     # Train
     parser.add_argument('--n_epochs', type=int, default=100)
