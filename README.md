@@ -69,6 +69,9 @@ Arguments in 'configs.py':
 </pre>
 For the parameters with no explicitly defined default values, please read the paper ("Implementation Details" section) or check the 'configs.py' file.
 
+## Evaluation
+In order to perform the evaluation described in the paper (Section V.A,V.B), you must have trained the model using 10 different values of the regularization factor (by running the file run_splits.sh). Then you can run the 'pipeline.sh' file, after specifying the path to the folder where the results of the experiment are stored. 
+
 ## Citation
 If you find this code useful in your work, please cite the following publication:
 
