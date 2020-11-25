@@ -1,7 +1,7 @@
 # AC-SUM-GAN: Connecting Actor-Critic and Generative Adversarial Networks for Unsupervised Video Summarization
 
 ## PyTorch Implementation of AC-SUM-GAN
-- From **"AC-SUM-GAN: Connecting Actor-Critic and Generative Adversarial Networks for Unsupervised Video Summarization"** (IEEE Transactions on Circuits and Systems for Video Technology (IEEE TCSVT 2020))
+- From **"AC-SUM-GAN: Connecting Actor-Critic and Generative Adversarial Networks for Unsupervised Video Summarization"** (IEEE Transactions on Circuits and Systems for Video Technology (IEEE TCSVT 2020), Early Access)
 - Written by Evlampios Apostolidis, Eleni Adamantidou, Alexandros I. Metsai, Vasileios Mezaris and Ioannis Patras
 - This software can be used for training a deep learning architecture that embeds an Actor-Critic model into a Generative Adversarial Network for automatic video summarization. Training is performed in a fully unsupervised manner without the need for ground-truth data (such as human-generated video summaries). After being unsupervisingly trained on a collection of videos, the AC-SUM-GAN model is capable of producing representative summaries for unseen videos, according to a user-specified time-budget about the summary duration.
 
@@ -70,14 +70,14 @@ Arguments in ['configs.py'](https://github.com/e-apostolidis/AC-SUM-GAN/blob/mai
 For the parameters with no explicitly defined default values, please read the paper ("Implementation Details" section) or check the ['configs.py'](https://github.com/e-apostolidis/AC-SUM-GAN/blob/main/model/configs.py) file.
 
 ## Model Selection and Evaluation
-The utilized model selection criterion, that relies on the optimization of core factors of the training process (i.e., the received reward from the Discriminator and the loss that is associated to the training of the Actor), enables the selection of a well-trained model by indicating both the training epoch and the value of the regularization factor. A basic prerequisite for using this criterion is to train the AC-SUM-GAN architecture for all the different values of the regularization factor. To evaluate the trained models of the architecture using different values of the regularization factor and automatically select a well-trained model, run ['pipeline.sh'](https://github.com/e-apostolidis/AC-SUM-GAN/blob/main/evaluation/pipeline.sh). To run this file, specify the argument "<path_to_experiment>" by defining the path to the main folder where the analysis results are stored. For further details about the adopted structure of directories in our implementation, please check line [#15 of 'evaluate_exp.sh'](https://github.com/e-apostolidis/AC-SUM-GAN/blob/main/evaluation/evaluate_exp.sh#L15). 
+The utilized model selection criterion, that relies on the optimization of core factors of the training process (i.e., the received reward from the Discriminator and the loss that is associated to the training of the Actor), enables the selection of a well-trained model by indicating both the training epoch and the value of the regularization factor. A basic prerequisite for using this criterion is to train the AC-SUM-GAN architecture for all the different values of the regularization factor. To evaluate the trained models of the architecture using different values of the regularization factor and automatically select a well-trained model, run ['pipeline.sh'](https://github.com/e-apostolidis/AC-SUM-GAN/blob/main/evaluation/pipeline.sh). To run this file, specify "path_to_experiment" by defining the path to the main folder where the analysis results are stored. For further details about the adopted structure of directories in our implementation, please check line [#15 of 'evaluate_exp.sh'](https://github.com/e-apostolidis/AC-SUM-GAN/blob/main/evaluation/evaluate_exp.sh#L15). 
 
 ## Citation
 If you find this code useful in your work, please cite the following publication:
 
 E. Apostolidis, E. Adamantidou, A. I. Metsai, V. Mezaris and I. Patras, **"AC-SUM-GAN: Connecting Actor-Critic and Generative Adversarial Networks for Unsupervised Video Summarization,"** in IEEE Transactions on Circuits and Systems for Video Technology.
 
-DOI: 10.1109/TCSVT.2020.3037883
+DOI: https://doi.org/10.1109/TCSVT.2020.3037883
 
 ## License
 Copyright (c) 2020, Evlampios Apostolidis, Eleni Adamantidou, Alexandros I. Metsai, Vasileios Mezaris, Ioannis Patras / CERTH-ITI. All rights reserved. This code is provided for academic, non-commercial use only. Redistribution and use in source and binary forms, with or without modification, are permitted for academic non-commercial use provided that the following conditions are met:
