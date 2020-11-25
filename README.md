@@ -1,7 +1,7 @@
 # AC-SUM-GAN: Connecting Actor-Critic and Generative Adversarial Networks for Unsupervised Video Summarization
 
 ## PyTorch Implementation of AC-SUM-GAN
-- From **"AC-SUM-GAN: Connecting Actor-Critic and Generative Adversarial Networks for Unsupervised Video Summarization"** (IEEE Transactions on Circuits and Systems for Video Technology (TCSVT 2020)
+- From **"AC-SUM-GAN: Connecting Actor-Critic and Generative Adversarial Networks for Unsupervised Video Summarization"** (IEEE Transactions on Circuits and Systems for Video Technology (TCSVT 2020))
 - Written by Evlampios Apostolidis, Eleni Adamantidou, Alexandros I. Metsai, Vasileios Mezaris and Ioannis Patras
 - This software can be used for training a deep learning architecture that embeds an Actor-Critic model into a Generative Adversarial Network for automatic video summarization. Training is performed in a fully unsupervised manner without the need for ground-truth data (such as human-generated video summaries). After being unsupervisingly trained on a collection of videos, the AC-SUM-GAN model is capable of producing representative summaries for unseen videos, according to a user-specified time-budget about the summary duration.
 
