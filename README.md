@@ -40,7 +40,7 @@ Alternatively, to train the model for all 5 splits, use the 'run_splits.sh' scri
 chmod +x run_splits.sh    # Makes the script executable.
 ./run_splits              # Runs the script.  
 </pre>
-Please note that after each training epoch the algorithm performs an evaluation step, and uses the trained model to compute the importance scores for the frames of each test video. These scores are then used by the provided evaluation scripts to assess the overal performance of the model (in F-Score).
+Please note that after each training epoch the algorithm performs an evaluation step, using the trained model to compute the importance scores for the frames of each video of the test set. These scores are then used by the provided evaluation scripts to assess the overal performance of the model (in F-Score).
 
 The progress of the training can be monitored via the TensorBoard platform and by:
 - opening a command line (cmd) and running: tensorboard --logdir=/path/to/log-directory --host=localhost
@@ -58,7 +58,7 @@ Arguments in 'configs.py':
 --input_size: The size of the input feature vectors (1024 for GoogLeNet features).
 --hidden_size: The hidden size of the LSTM units.
 --num_layers: The number of layers of each LSTM network.
---regularization_factor: The value of the reguralization factor (ranges from 0.0 to 1.0).
+--regularization_factor: The value of the regularization factor (ranges from 0.0 to 1.0).
 --entropy_coef: The entropy regularization coefficient delta (0.1 in this implementation).
 --n_epochs: Number of training epochs.
 --clip: The gradient clipping parameter.
