@@ -6,9 +6,7 @@ import numpy as np
 
 ''' Chooses the best F-score (among 100 epochs) based on a criterion (Reward & Actor_loss).
     Takes as input the path to .csv file with all the loss functions and a .txt file with the F-Scores (for each split).
-    Prints a scalar for each split that represents the best F-score value.
-    
-    The above process is done for 2 criteria and for both train and test logs'''
+    Prints a scalar that represents the average best F-score value.'''
 
 
 def use_logs(logs_file, f_scores):
