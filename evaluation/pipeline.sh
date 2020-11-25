@@ -10,5 +10,5 @@ bash evaluate_exp.sh <path_to_experiment> sigma0.8 TVSum avg
 bash evaluate_exp.sh <path_to_experiment> sigma0.9 TVSum avg
 bash evaluate_exp.sh <path_to_experiment> sigma1.0 TVSum avg
 
-# Run the script that chooses the best epoch and therefore the final F-Score value
+# Run the script that chooses the best epoch and defines the final F-Score value
 python choose_best_epoch.py <path_to_experiment> TVSum
