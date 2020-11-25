@@ -1,7 +1,7 @@
 # AC-SUM-GAN: Connecting Actor-Critic and Generative Adversarial Networks for Unsupervised Video Summarization
 
 ## PyTorch Implementation of AC-SUM-GAN
-- From **"AC-SUM-GAN: Connecting Actor-Critic and Generative Adversarial Networks for Unsupervised Video Summarization"** (IEEE Transactions on Circuits and Systems for Video Technology (TCSVT 2020))
+- From **"AC-SUM-GAN: Connecting Actor-Critic and Generative Adversarial Networks for Unsupervised Video Summarization"** (IEEE Transactions on Circuits and Systems for Video Technology (IEEE TCSVT 2020))
 - Written by Evlampios Apostolidis, Eleni Adamantidou, Alexandros I. Metsai, Vasileios Mezaris and Ioannis Patras
 - This software can be used for training a deep learning architecture that embeds an Actor-Critic model into a Generative Adversarial Network for automatic video summarization. Training is performed in a fully unsupervised manner without the need for ground-truth data (such as human-generated video summaries). After being unsupervisingly trained on a collection of videos, the AC-SUM-GAN model is capable of producing representative summaries for unseen videos, according to a user-specified time-budget about the summary duration.
 
@@ -35,7 +35,7 @@ For training the model using a single split, run:
 <pre>
 python main.py --split_index N (with N being the index of the split)
 </pre>
-Alternatively, to train the model for all 5 splits, use the 'run_splits.sh' script according to the following:
+Alternatively, to train the model for all 5 splits, use the ['run_splits.sh'](https://github.com/e-apostolidis/AC-SUM-GAN/blob/main/model/run_splits.sh) script and do the following:
 <pre>
 chmod +x run_splits.sh    # Makes the script executable.
 ./run_splits              # Runs the script.  
@@ -49,16 +49,16 @@ The progress of the training can be monitored via the TensorBoard platform and b
 ## Configurations
 Setup for the training process:
 
-- On 'data_loader.py', specify the path to the 'h5' file of the dataset and the path to the 'json' file containing data about the created splits.
-- On 'configs.py', define the directory where the models will be saved to.
+- In ['data_loader.py'](https://github.com/e-apostolidis/AC-SUM-GAN/blob/main/model/data_loader.py), specify the path to the 'h5' file of the dataset and the path to the 'json' file containing data about the created splits.
+- In ['configs.py'](https://github.com/e-apostolidis/AC-SUM-GAN/blob/main/model/configs.py), define the directory where the models will be saved to.
     
-Arguments in 'configs.py': 
+Arguments in ['configs.py'](https://github.com/e-apostolidis/AC-SUM-GAN/blob/main/model/configs.py): 
 <pre>
 --video_type: The used dataset for training the model. Can be either 'TVSum' or 'SumMe'.
 --input_size: The size of the input feature vectors (1024 for GoogLeNet features).
 --hidden_size: The hidden size of the LSTM units.
 --num_layers: The number of layers of each LSTM network.
---regularization_factor: The value of the regularization factor (ranges from 0.0 to 1.0).
+--regularization_factor: The value of the regularization factor (ranges from 0.0 to 1.0 with a step equal to 0.1).
 --entropy_coef: The entropy regularization coefficient delta (0.1 in this implementation).
 --n_epochs: Number of training epochs.
 --clip: The gradient clipping parameter.
@@ -67,10 +67,10 @@ Arguments in 'configs.py':
 --split_index: The index of the current split.
 --action_state_size: The size of the action-state space (60 in this implementation).
 </pre>
-For the parameters with no explicitly defined default values, please read the paper ("Implementation Details" section) or check the 'configs.py' file.
+For the parameters with no explicitly defined default values, please read the paper ("Implementation Details" section) or check the ['configs.py'](https://github.com/e-apostolidis/AC-SUM-GAN/blob/main/model/configs.py) file.
 
 ## Model Selection and Evaluation
-In order to perform the evaluation described in the paper (Section V.A, V.B), you must have trained the model using 10 different values of the regularization factor (by running the file run_splits.sh). Then you can run the 'pipeline.sh' file, after specifying the path to the folder where the results of the experiment are stored. 
+The utilized model selection criterion, that relies on the optimization of core factors of the training process (i.e., the received reward from the Discriminator and the loss that is associated to the training of the Actor), enables the selection of a well-trained model by indicating both the training epoch and the value of the regularization factor. A basic prerequisite for using this criterion is to train the AC-SUM-GAN architecture for all the different values of the regularization factor. To evaluate the trained models of the architecture using different values of the regularization factor and automatically select a well-trained model, run ['pipeline.sh'](https://github.com/e-apostolidis/AC-SUM-GAN/blob/main/evaluation/pipeline.sh). To run this file, specify the argument "<path_to_experiment>" by defining the path to the main folder where the analysis results are stored. For further details about the adopted structure of directories in our implementation, please check line [#15 of 'evaluate_exp.sh'](https://github.com/e-apostolidis/AC-SUM-GAN/blob/main/evaluation/evaluate_exp.sh#L15). 
 
 ## Citation
 If you find this code useful in your work, please cite the following publication:
