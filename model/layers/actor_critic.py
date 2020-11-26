@@ -1,8 +1,4 @@
-import os
-from itertools import count
-import torch
 import torch.nn as nn
-import torch.optim as optim
 import torch.nn.functional as F
 from torch.distributions import Categorical
 
