@@ -159,7 +159,7 @@ class Summarizer(nn.Module):
         self.s_lstm = sLSTM(input_size, hidden_size, num_layers)
         self.vae = VAE(input_size, hidden_size, num_layers)
 
-    def forward(self, image_features, uniform=False):
+    def forward(self, image_features):
         """
         Args:
             image_features: [seq_len, 1, hidden_size]
