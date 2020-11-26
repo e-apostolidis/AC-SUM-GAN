@@ -160,16 +160,22 @@ class Summarizer(nn.Module):
         self.vae = VAE(input_size, hidden_size, num_layers)
 
     def forward(self, image_features, uniform=False):
+        """
+        Args:
+            image_features: [seq_len, 1, hidden_size]
+        Return:
+            scores: [seq_len, 1]
+            h_mu: [num_layers=2, hidden_size]
+            h_log_variance: [num_layers=2, hidden_size]
+            decoded_features: [seq_len, 1, hidden_size]
+        """
+        
         # Apply weights
-        if not uniform:
-            # [seq_len, 1]
-            scores = self.s_lstm(image_features)
+        # [seq_len, 1]
+        scores = self.s_lstm(image_features)
 
-            # [seq_len, 1, hidden_size]
-            weighted_features = image_features * scores.view(-1, 1, 1)
-        else:
-            scores = None
-            weighted_features = image_features
+        # [seq_len, 1, hidden_size]
+        weighted_features = image_features * scores.view(-1, 1, 1)
 
         h_mu, h_log_variance, decoded_features = self.vae(weighted_features)
 
